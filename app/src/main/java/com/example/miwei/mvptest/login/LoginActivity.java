@@ -27,14 +27,17 @@ import android.widget.ProgressBar;
 
 import com.example.miwei.mvptest.MainActivity;
 import com.example.miwei.mvptest.R;
+import com.example.miwei.mvptest.baselogin.BaseLoginInteractorImpl;
+import com.example.miwei.mvptest.baselogin.BaseLoginPresenter;
+import com.example.miwei.mvptest.baselogin.BaseLoginView;
 
 
-public class LoginActivity extends Activity implements LoginView, View.OnClickListener {
+public class LoginActivity extends Activity implements BaseLoginView, View.OnClickListener {
 
     private ProgressBar progressBar;
     private EditText username;
     private EditText password;
-    private LoginPresenter presenter;
+    private BaseLoginPresenter presenter;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +48,7 @@ public class LoginActivity extends Activity implements LoginView, View.OnClickLi
         password = (EditText) findViewById(R.id.password);
         findViewById(R.id.button).setOnClickListener(this);
 
-        presenter = new LoginPresenterImpl(this,new LoginInteractorImpl());
+        presenter = new BaseLoginPresenter(this,new BaseLoginInteractorImpl());
     }
 
     @Override protected void onDestroy() {
