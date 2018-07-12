@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:text="@string/title_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <com.example.miwei.mvptest.common.view.ScrollableLayout
+        android:id="@+id/scrollView"
+        android:orientation="vertical"
+        android:background="#FF0000"
+        android:layout_below="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:background="#FF00FF"
+            android:orientation="vertical"
+            android:id="@+id/ll_content"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp">
+            <TextView
+                android:text="@string/hello_world"
+                android:id="@+id/tv_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="#BBBBBB"
+            android:orientation="horizontal"
+            android:id="@+id/ll_table"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:text="page1"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <TextView
+                android:text="page2"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.example.miwei.mvptest.common.view.ScrollableLayout>
+
+
+
+
+</RelativeLayout>

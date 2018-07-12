@@ -19,17 +19,25 @@
 package com.example.miwei.mvptest.login;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import com.example.miwei.mvptest.A;
+import com.example.miwei.mvptest.ChildActivity;
 import com.example.miwei.mvptest.MainActivity;
+import com.example.miwei.mvptest.MaskActivity;
 import com.example.miwei.mvptest.R;
+import com.example.miwei.mvptest.annotationtest.FileType;
+import com.example.miwei.mvptest.annotationtest.MyButterknife;
+import com.example.miwei.mvptest.annotationtest.Student;
 import com.example.miwei.mvptest.baselogin.BaseLoginInteractorImpl;
 import com.example.miwei.mvptest.baselogin.BaseLoginPresenter;
 import com.example.miwei.mvptest.baselogin.BaseLoginView;
+import com.example.miwei.mvptest.common.util.ThreadControl;
 
 
 public class LoginActivity extends Activity implements BaseLoginView, View.OnClickListener {
@@ -69,15 +77,23 @@ public class LoginActivity extends Activity implements BaseLoginView, View.OnCli
     }
 
     @Override public void setPasswordError() {
-        password.setError(getString(R.string.password_error));
+            password.setError(getString(R.string.password_error));
     }
 
     @Override public void navigateToHome() {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, ScrollLayoutActivity.class));
         finish();
     }
 
     @Override public void onClick(View v) {
-        presenter.validateCredentials(username.getText().toString(), password.getText().toString());
+//        presenter.validateCredentials(username.getText().toString(), password.getText().toString());
+        ThreadControl.get().setDispalyTime(8);
+        for(int i = 0;i<3;i++) {
+
+            ThreadControl.get().handlePushInfo(this,String.valueOf(i));
+
+        }
+
     }
+
 }

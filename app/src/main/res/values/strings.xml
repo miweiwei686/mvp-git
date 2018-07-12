@@ -8,4 +8,6 @@
     <string name="title_activity_main">MVP Example</string>
     <string name="username_error">Username cannot be empty</string>
     <string name="password_error">Password cannot be empty</string>
+    <string name="title_name">标题栏</string>
+    <string name="cancle">取消</string>
 </resources>
